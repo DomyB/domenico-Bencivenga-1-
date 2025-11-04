@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Connect</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="auth-overlay" class="overlay">
+    <div class="auth-card">
+      <h1>Campus Connect</h1>
+      <p>Enter your university access password to continue.</p>
+      <div class="input-group">
+        <label for="password">University Password</label>
+        <input type="password" id="password" placeholder="Enter password" />
+      </div>
+      <button id="enter-btn">Enter</button>
+      <p id="auth-message" class="error hidden">Incorrect password. Please try again.</p>
+      <p class="hint">Hint: Ask your student services office for the Campus Connect password.</p>
+    </div>
+  </div>
+
+  <header>
+    <h1>Campus Connect</h1>
+    <p>Your hub for on-campus meetups and city happenings.</p>
+  </header>
+
+  <main class="container hidden" id="app">
+    <section class="card" id="create-meetup">
+      <h2>Plan a Campus Meetup</h2>
+      <p>Create a meetup and invite fellow students to join.</p>
+      <form id="meetup-form">
+        <div class="form-grid">
+          <label>
+            Meetup Title
+            <input type="text" id="meetup-title" placeholder="Study Jam at the Library" required />
+          </label>
+          <label>
+            Location
+            <select id="meetup-location" required>
+              <option value="">Select a location</option>
+            </select>
+          </label>
+          <label>
+            Date
+            <input type="date" id="meetup-date" required />
+          </label>
+          <label>
+            Start Time
+            <input type="time" id="meetup-time" required />
+          </label>
+          <label class="full">
+            Description
+            <textarea id="meetup-description" rows="2" placeholder="Bring your laptops and notes!" required></textarea>
+          </label>
+        </div>
+        <button type="submit">Create Meetup</button>
+      </form>
+    </section>
+
+    <section class="card" id="upcoming-meetups">
+      <div class="card-header">
+        <h2>Upcoming Meetups</h2>
+        <div class="controls">
+          <input type="search" id="meetup-search" placeholder="Search meetups" />
+          <select id="meetup-filter">
+            <option value="all">All Locations</option>
+          </select>
+        </div>
+      </div>
+      <ul id="meetup-list" class="item-list"></ul>
+      <p id="no-meetups" class="empty-state hidden">No meetups scheduled yet. Create the first one!</p>
+    </section>
+
+    <section class="card" id="city-events">
+      <div class="card-header">
+        <h2>City Events</h2>
+        <div class="controls">
+          <select id="event-category">
+            <option value="all">All Categories</option>
+          </select>
+          <input type="date" id="event-date" />
+        </div>
+      </div>
+      <ul id="event-list" class="item-list"></ul>
+    </section>
+
+    <section class="card" id="popular-bars">
+      <h2>Popular Bars & Hangouts</h2>
+      <p>Discover the most loved spots by students and locals alike.</p>
+      <div id="bar-grid" class="bar-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Campus Connect. Built by students, for students.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
